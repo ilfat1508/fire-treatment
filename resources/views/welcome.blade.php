@@ -76,5 +76,28 @@
     </div>
 </header>
 
+<section class="hero">
+    <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon.png') }}')"></div>
+            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon2.png') }}')"></div>
+            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/main.jpeg') }}')"></div>
+        </div>
+    </div>
+
+    <div class="hero-content">
+        <h1>
+            Огнезащитная и антикоррозийная обработка металлических конструкций
+        </h1>
+
+        <div class="hero-icons">
+            <span>🔥 Огнезащита</span>
+            <span>🛡 Антикоррозия</span>
+        </div>
+
+        <a href="#contact" class="btn-primary">Получить расчёт</a>
+    </div>
+</section>
+
 </body>
 </html>

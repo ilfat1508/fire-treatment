@@ -3,6 +3,7 @@ $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap-icons/font/bootstrap-icons";
 @import "components/header";
+@import "components/hero-slider";
 
 body {
     font-family: sans-serif;

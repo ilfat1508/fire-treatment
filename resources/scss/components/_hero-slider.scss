@@ -1,0 +1,59 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+
+    // затемнение фона
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    // Swiper как фон
+    &-swiper {
+        height: 100vh;
+
+        .swiper-slide {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    // Контент поверх слайдера
+    &-content {
+        position: absolute;
+        z-index: 2;
+        top: 35%;
+        left: 8%;
+        transform: translateY(-50%);
+        max-width: 720px;
+        color: #fff;
+
+        h1 {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+.hero {
+    &-swiper {
+        .swiper-slide {
+            animation: heroZoom 12s linear infinite;
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .hero {
+        &-content {
+            left: 5%;
+            right: 5%;
+            max-width: none;
+        }
+    }
+}
