@@ -26,14 +26,30 @@
     &-content {
         position: absolute;
         z-index: 2;
-        top: 35%;
+        top: 37%;
         left: 8%;
         transform: translateY(-50%);
         max-width: 720px;
         color: #fff;
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 55px;
+        }
+
+        .hero-icons {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 20px;
+
+            .bi::before {
+                color: #f16f28;
+                font-size: 24px;
+            }
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 18px
         }
     }
 }
@@ -46,7 +62,13 @@
     }
 }
 
-
+@media screen and (max-width: 1280px) {
+    .hero-content {
+        h1 {
+            font-size: 50px;
+        }
+    }
+}
 
 @media (max-width: 768px) {
     .hero {

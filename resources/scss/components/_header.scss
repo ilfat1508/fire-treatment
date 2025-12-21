@@ -56,6 +56,9 @@ header {
     }
 }
 
+.logo {
+    background-image: url("/public/images/icons/logo.svg");
+}
 
 @media screen and (max-width: 1024px) {
     header {

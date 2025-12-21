@@ -28,6 +28,7 @@
                 info@lenar.ru
             </a>
         </p>
+        <p class=""></p>
         <p>
             <a href="tel:+7 (843) 523-27-45" class="head__contact__title">
                 <i class="bi bi-telephone-forward-fill"></i>
@@ -79,6 +80,8 @@
 <section class="hero">
     <div class="swiper hero-swiper">
         <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon3.png') }}')"></div>
+            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon4.png') }}')"></div>
             <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon.png') }}')"></div>
             <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon2.png') }}')"></div>
             <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/main.jpeg') }}')"></div>
@@ -87,17 +90,16 @@
 
     <div class="hero-content">
         <h1>
-            Огнезащитная и антикоррозийная обработка металлических конструкций
+            Огнезащитная и <br> антикоррозийная <br> обработка металлических <br> конструкций
         </h1>
 
         <div class="hero-icons">
-            <span>🔥 Огнезащита</span>
-            <span>🛡 Антикоррозия</span>
+            <p class="fire-icon"><i class="bi bi-fire"></i> Устойчивость к возгоранию</p>
+            <p class="shield-icon"><i class="bi bi-shield-shaded"></i> Защита от коррозии</p>
         </div>
 
-        <a href="#contact" class="btn-primary">Получить расчёт</a>
+        <button class="whatsapp-btn">Узнать больше</button>
     </div>
 </section>
-
 </body>
 </html>
