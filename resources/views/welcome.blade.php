@@ -20,7 +20,7 @@
 <header>
     <div class="header-mobile">
         <div class="logo">
-            <img src="{{ asset('images/icons/logo.svg') }}" alt="LENAR">
+            <img src="{{ asset('images/mobile/header-fire.png') }}" alt="LENAR">
         </div>
 
         <button class="burger" aria-label="Меню">
@@ -114,18 +114,19 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon3.png') }}')"></div>
             <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon4.png') }}')"></div>
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon5.jpeg') }}')"></div>
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon6.jpeg') }}')"></div>
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon.png') }}')"></div>
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon2.png') }}')"></div>
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/main.jpeg') }}')"></div>
+{{--            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon5.jpeg') }}')"></div>--}}
+{{--            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon6.jpeg') }}')"></div>--}}
+{{--            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon.png') }}')"></div>--}}
+{{--            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon2.png') }}')"></div>--}}
+{{--            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/main.jpeg') }}')"></div>--}}
         </div>
     </div>
 
     <div class="hero-content">
-        <h1>
+        <h1 class="desktop-title">
             Огнезащитная и <br> антикоррозийная <br> обработка бетонных и металлических <br> конструкций
         </h1>
+        <h1 class="mobile-title">ОГНЕЗАЩИТА и <br> АНТИКОРРОЗИЯ</h1>
 
         <div class="hero-icons">
             <p class="fire-icon"><i class="bi bi-fire"></i> Устойчивость к возгоранию</p>
@@ -133,7 +134,14 @@
         </div>
 
         <button class="whatsapp-btn">Узнать больше</button>
-        <div class="blue-block"><img src="{{asset('images/mobile/blue-block.svg')}}" alt=""></div>
+    </div>
+    <div class="blue-block">
+        <img src="{{asset('images/mobile/blue-block.svg')}}" alt="">
+        <div class="buttons">
+            <button class="whatsapp-btn"><i class="bi bi-fire">ОГНЕЗАЩИТА</i><div class="arrow"></div></button>
+            <button class="whatsapp-btn"><i class="bi bi-shield-shaded">АНТИКОРРОЗИЯ</i><div class="arrow"></div></button>
+        </div>
+        <button class="whatsapp-btn">Узнать больше</button>
     </div>
 </section>
 </body>

@@ -28,6 +28,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
+            animation: heroZoom 12s linear infinite;
         }
     }
 
@@ -35,7 +36,7 @@
     &-content {
         position: absolute;
         z-index: 2;
-        top: 37%;
+        top: 40%;
         left: 8%;
         transform: translateY(-50%);
         max-width: 720px;
@@ -43,6 +44,10 @@
 
         h1 {
             font-size: 55px;
+        }
+
+        .mobile-title {
+            display: none;
         }
 
         .hero-icons {
@@ -61,13 +66,9 @@
             font-size: 18px
         }
     }
-}
 
-.hero {
-    &-swiper {
-        .swiper-slide {
-            animation: heroZoom 12s linear infinite;
-        }
+    .blue-block {
+        display: none;
     }
 }
 
