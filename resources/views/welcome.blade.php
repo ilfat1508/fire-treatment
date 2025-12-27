@@ -19,26 +19,15 @@
 <body>
 <header>
     <div class="header-mobile">
+        <div class="logo">
+            <img src="{{ asset('images/icons/logo.svg') }}" alt="LENAR">
+        </div>
 
         <button class="burger" aria-label="Меню">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
-        <div class="logo">
-            <img src="{{ asset('images/icons/logo.svg') }}" alt="LENAR">
-        </div>
-
-        <div class="header-actions">
-            <a href="tel:+78435232745" class="icon-btn">
-                <i class="bi bi-telephone-fill"></i>
-            </a>
-
-            <a href="https://wa.me/79656171753" class="icon-btn whatsapp">
-                <i class="bi bi-whatsapp"></i>
-            </a>
-        </div>
     </div>
 
     <!-- MOBILE MENU -->
@@ -144,6 +133,7 @@
         </div>
 
         <button class="whatsapp-btn">Узнать больше</button>
+        <div class="blue-block"><img src="{{asset('images/mobile/blue-block.svg')}}" alt=""></div>
     </div>
 </section>
 </body>
