@@ -174,5 +174,19 @@
         </button>
     </div>
 </section>
+<div class="form-container">
+    <p class="form-title">Заказать звонок</p>
+    <p class="subtitle">Закажите звонок для консультации, мы свяжемся с вами</p>
+
+    <form action="/submit" method="POST">
+        <label for="fio">ФИО:</label>
+        <input type="text" id="fio" name="fio" required>
+
+        <label for="phone">Номер телефона:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+
+        <button type="submit">Отправить заявку</button>
+    </form>
+</div>
 </body>
 </html>
