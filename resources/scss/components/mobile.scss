@@ -101,6 +101,64 @@
                 padding: 12px 20px;
             }
         }
+
+        .services-containter-title {
+            display: flex;
+            margin-top: 85px;
+            padding: 0 15px;
+            align-items: center;
+            justify-content: space-between;
+
+            hr {
+                height: 2px;
+                width: 27%;
+                border: none;
+                background: linear-gradient(90deg,
+                    rgba(3, 54, 119, 0) 0%,      /* 0% - полностью прозрачный */
+                    rgba(3, 54, 119, 0.2) 15%,   /* 25% - слабая видимость */
+                    rgba(3, 54, 119, 0.5) 30%,   /* 50% - средняя видимость */
+                    rgba(3, 54, 119, 0.8) 50%,   /* 75% - сильная видимость */
+                    #033677 60%                 /* 100% - полный цвет */
+                );
+            }
+
+            hr.second {
+                background: linear-gradient(90deg,
+                    #033677 0%,                    /* 0% - полный цвет */
+                    rgba(3, 54, 119, 0.8) 40%,     /* 40% - сильная видимость */
+                    rgba(3, 54, 119, 0.5) 70%,     /* 70% - средняя видимость */
+                    rgba(3, 54, 119, 0.2) 85%,     /* 85% - слабая видимость */
+                    rgba(3, 54, 119, 0) 100%       /* 100% - полностью прозрачный */
+                );
+            }
+
+            p {
+                margin: 0;
+                color: #033677;
+                font-size: 18px;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            margin-top: 10px;
+
+            .service {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                p {
+                    text-align: center;
+                    color: #033677;
+                    font-weight: 600;
+                }
+            }
+        }
     }
 }
 
@@ -327,6 +385,35 @@
                         border-bottom: 3px solid white;
                         transform: rotate(-45deg);
                     }
+                }
+            }
+        }
+
+        .services-buttons {
+            display: block;
+            padding: 0 15px;
+            margin-bottom: 20px;
+            margin-top: 5px;
+
+            button {
+                display: flex;
+                height: 55px;
+                padding: 20px;
+                width: 100%;
+                margin: auto;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 18px;
+                white-space: nowrap;
+                font-weight: 600;
+                font-style: normal;
+
+                .arrow {
+                    width: 10px;
+                    height: 10px;
+                    border-right: 3px solid white;
+                    border-bottom: 3px solid white;
+                    transform: rotate(-45deg);
                 }
             }
         }
