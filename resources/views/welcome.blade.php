@@ -67,7 +67,7 @@
             </a>
         </p>
         <div class="whatsapp-block-wrapper">
-            <a href="https://wa.clck.bar/7872696383">
+            <a>
                 <button class="whatsapp-btn">Заказать звонок
                     <div class="dot"></div>
                 </button>
@@ -174,11 +174,13 @@
         </button>
     </div>
 </section>
+<div class="overlay" id="overlay"></div>
 <div class="form-container">
     <p class="form-title">Заказать звонок</p>
     <p class="subtitle">Закажите звонок для консультации, мы свяжемся с вами</p>
 
     <form action="/submit" method="POST">
+        @csrf
         <label for="fio">ФИО:</label>
         <input type="text" id="fio" name="fio" required>
 
