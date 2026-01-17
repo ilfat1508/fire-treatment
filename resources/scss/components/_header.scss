@@ -17,6 +17,20 @@ header {
         justify-content: space-between;
         margin: auto;
         max-width: 1230px;
+
+        .logo-text {
+            span:first-child {
+                font-size: 24px;
+                font-weight: 600;
+                color: #0070ff;
+            }
+
+            span:last-child {
+                font-size: 18px;
+                font-weight: 600;
+                color: red;
+            }
+        }
     }
 
     a {
@@ -29,7 +43,7 @@ header {
     }
 
     i::before {
-        color: #f16f28;
+        color: red;
         margin-right: 5px
     }
 
@@ -67,5 +81,23 @@ header {
 @media screen and (max-width: 1024px) {
     header {
         font-size: 13px;
+
+        .container {
+            .logo-text {
+                span:first-child {
+                    font-size: 20px;
+                }
+
+                span:last-child {
+                    font-size: 16px;
+                }
+            }
+
+            .messengers {
+                i::before {
+                    font-size: 16px;
+                }
+            }
+        }
     }
 }
