@@ -100,6 +100,12 @@
         <div class="hero-icons">
             <p class="fire-icon"><i class="bi bi-fire"></i> Устойчивость к возгоранию</p>
             <p class="shield-icon"><i class="bi bi-shield-shaded"></i> Защита от коррозии</p>
+            <p>
+                <i class="bi bi-file-earmark-text"></i>
+                <a href="{{ asset('documents/license.pdf') }}" target="_blank" rel="noopener noreferrer">
+                    Лицензия МЧС
+                </a>
+            </p>
         </div>
 
         <button class="whatsapp-btn">Узнать больше</button>
@@ -161,7 +167,7 @@
     <p class="form-title">Заказать звонок</p>
     <p class="subtitle">Закажите звонок для консультации, мы свяжемся с вами</p>
 
-    <form action="/submit" method="POST">
+    <form action="{{ route('callback.store') }}" data-route="{{ route('callback.store') }}" class="callback-form">
         @csrf
         <label for="fio">ФИО:</label>
         <input type="text" id="fio" name="fio" required>
@@ -201,9 +207,30 @@
             <a href="{{ asset('documents/license.pdf') }}" target="_blank" rel="noopener noreferrer">
                 Лицензия МЧС
             </a>
-
         </p>
     </div>
 </footer>
 </body>
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 bg-success text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-check-circle me-2"></i>Заявка отправлена!
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <div id="successMessage" class="fs-5 fw-bold text-success"></div>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-success px-4" onclick="location.reload()">
+                    <i class="fas fa-plus me-2"></i>Новый звонок
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </html>

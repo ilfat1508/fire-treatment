@@ -40,4 +40,39 @@ document.addEventListener('DOMContentLoaded', function() {
         let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
         e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
     });
+
+    // В отдельном form.js
+    document.querySelector('.callback-form')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const button = this.querySelector('button');
+        const originalText = button.textContent;
+        button.textContent = 'Отправляем...';
+        button.disabled = true;
+
+        try {
+            const formData = new FormData(this);
+            const route = this.dataset.route; // ← Берем из data-route
+
+            const response = await fetch(route, {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert("Спасибо за вашу заявку! В ближайшее время мы свяжемся с вами")
+                button.textContent = 'Отправить заявку';
+                button.disabled = false;
+                this.reset();
+                closeModal();
+            }
+        } catch (error) {
+            alert('Ошибка сети');
+            button.textContent = originalText;
+            button.disabled = false;
+        }
+    });
+
 });
