@@ -23,9 +23,9 @@
         <p class="logo-text"><span>RGZ</span> <span> project</span></p>
 
         <p>
-            <a href="tel:+7 (987) 269-63-83" class="head__contact__title">
+            <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
                 <i class="bi bi-telephone-forward-fill"></i>
-                +7 (987) 269-63-83
+                +7 (917) 921-55-55
             </a>
         </p>
     </div>
@@ -35,16 +35,16 @@
             <i class="bi bi-geo-alt-fill"></i>
             г. Казань, ул. Нариманова, 40 офис 317</p>
         <p>
-            <a href="mailto:info@lenar.ru" class="mail">
+            <a href="mailto:info@rgz-project.ru" class="mail">
                 <i class="bi bi-envelope-at-fill"></i>
-                info@lenar.ru
+                info@rgz-project.ru
             </a>
         </p>
         <p class="logo-text"><span>RGZ</span> <span> project</span></p>
         <p>
-            <a href="tel:+7 (987) 269-63-83" class="head__contact__title">
+            <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
                 <i class="bi bi-telephone-forward-fill"></i>
-                +7 (987) 269-63-83
+                +7 (917) 921-55-55
             </a>
         </p>
         <div class="whatsapp-block-wrapper">
@@ -193,9 +193,9 @@
             </p>
         </div>
         <p>
-            <a href="mailto:info@lenar.ru" class="mail">
+            <a href="mailto:info@rgz-project.ru" class="mail">
                 <i class="bi bi-envelope-at-fill"></i>
-                info@testproject.ru
+                info@rgz-project.ru
             </a>
         </p>
         <p class="address">
