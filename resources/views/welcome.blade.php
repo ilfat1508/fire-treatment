@@ -162,6 +162,7 @@
         </button>
     </div>
 </section>
+@include('partials.home.news', ['latestNews' => $latestNews])
 <div class="overlay" id="overlay"></div>
 <div class="form-container">
     <p class="form-title">Заказать звонок</p>
