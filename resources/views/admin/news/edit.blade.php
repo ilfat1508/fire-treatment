@@ -94,13 +94,66 @@
             slugInput.value = toSlug(titleInput.value);
         });
 
-        ClassicEditor.create(document.querySelector('#content'), {
-            simpleUpload: {
-                uploadUrl: '{{ route('admin.news.upload') }}',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        const uploadUrl = '{{ route('admin.news.upload') }}';
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        class NewsUploadAdapter {
+            constructor(loader) {
+                this.loader = loader;
+                this.xhr = null;
+            }
+
+            upload() {
+                return this.loader.file.then(file => new Promise((resolve, reject) => {
+                    this._initRequest();
+                    this._initListeners(resolve, reject, file);
+                    this._sendRequest(file);
+                }));
+            }
+
+            abort() {
+                if (this.xhr) {
+                    this.xhr.abort();
                 }
             }
+
+            _initRequest() {
+                const xhr = this.xhr = new XMLHttpRequest();
+                xhr.open('POST', uploadUrl, true);
+                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                xhr.responseType = 'json';
+            }
+
+            _initListeners(resolve, reject, file) {
+                const xhr = this.xhr;
+                const genericError = `Не удалось загрузить файл: ${file.name}.`;
+
+                xhr.addEventListener('error', () => reject(genericError));
+                xhr.addEventListener('abort', () => reject());
+                xhr.addEventListener('load', () => {
+                    const response = xhr.response;
+                    if (!response || !(response.url || response.default)) {
+                        return reject(response?.message || genericError);
+                    }
+                    resolve({ default: response.url || response.default });
+                });
+            }
+
+            _sendRequest(file) {
+                const data = new FormData();
+                data.append('upload', file);
+                this.xhr.send(data);
+            }
+        }
+
+        function NewsUploadAdapterPlugin(editor) {
+            editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                return new NewsUploadAdapter(loader);
+            };
+        }
+
+        ClassicEditor.create(document.querySelector('#content'), {
+            extraPlugins: [NewsUploadAdapterPlugin],
         }).catch(error => console.error(error));
     </script>
 @endpush

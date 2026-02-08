@@ -16,9 +16,11 @@ class NewsUploadController extends Controller
         ]);
 
         $path = $validated['upload']->store('news/inline', 'public');
+        $url = Storage::disk('public')->url($path);
 
         return response()->json([
-            'url' => Storage::disk('public')->url($path),
+            'url' => $url,
+            'default' => $url,
         ]);
     }
 }
