@@ -1,48 +1,55 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('.form-container');
     const overlay = document.querySelector('.overlay');
+    const callbackForm = document.querySelector('.callback-form');
+    const phoneInput = document.getElementById('phone');
+    const closeButton = document.querySelector('.form-close');
 
-    // Открытие
+    if (!modal || !overlay || !callbackForm) {
+        return;
+    }
+
     function openModal() {
         overlay.classList.add('active');
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // блокировка скролла
+        document.body.style.overflow = 'hidden';
+        document.body.style.touchAction = 'none';
     }
 
-    // Закрытие
     function closeModal() {
-        modal.classList.add('closing');
         overlay.classList.remove('active');
-        modal.classList.remove('active', 'closing');
-        document.body.style.overflow = 'auto';
+        modal.classList.remove('active');
+        const menuOpened = Boolean(document.querySelector('.site-header.menu-open'));
+        document.body.style.overflow = menuOpened ? 'hidden' : '';
+        document.body.style.touchAction = menuOpened ? 'none' : '';
     }
 
-    // События
-    document.querySelectorAll('.whatsapp-btn').forEach(btn => {
-        btn.addEventListener('click', openModal)
-    })
-
-    // Закрытие по крестику (если добавите реальный элемент) или overlay
-    overlay.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal || e.target.closest('::before')) closeModal();
+    document.querySelectorAll('.whatsapp-btn').forEach((btn) => {
+        btn.addEventListener('click', openModal);
     });
 
-    // Закрытие по Escape
-    document.addEventListener('keydown', function(e) {
+    overlay.addEventListener('click', closeModal);
+    closeButton?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
     });
 
-    const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', function(e) {
-        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
-        e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
-    });
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+            const value = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            e.target.value =
+                '+7' +
+                (value[2] ? ` (${value[2]}` : '') +
+                (value[3] ? `) ${value[3]}` : '') +
+                (value[4] ? `-${value[4]}` : '') +
+                (value[5] ? `-${value[5]}` : '');
+        });
+    }
 
-    // В отдельном form.js
-    document.querySelector('.callback-form')?.addEventListener('submit', async function(e) {
+    callbackForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const button = this.querySelector('button');
@@ -52,17 +59,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const formData = new FormData(this);
-            const route = this.dataset.route; // ← Берем из data-route
+            const route = this.dataset.route;
 
             const response = await fetch(route, {
                 method: 'POST',
-                body: formData
+                body: formData,
             });
 
             const data = await response.json();
 
             if (data.success) {
-                alert("Спасибо за вашу заявку! В ближайшее время мы свяжемся с вами")
+                alert('Спасибо за вашу заявку! В ближайшее время мы свяжемся с вами');
                 button.textContent = 'Отправить заявку';
                 button.disabled = false;
                 this.reset();
@@ -74,5 +81,4 @@ document.addEventListener('DOMContentLoaded', function() {
             button.disabled = false;
         }
     });
-
 });

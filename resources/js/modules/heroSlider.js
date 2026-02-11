@@ -7,13 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.querySelector('.hero-swiper');
     if (!el) return;
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     new Swiper(el, {
-        loop: true,
-        speed: 1200,
+        loop: !reducedMotion,
+        speed: reducedMotion ? 0 : 1100,
         effect: 'fade',
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
+        allowTouchMove: !reducedMotion,
+        autoplay: reducedMotion
+            ? false
+            : {
+                  delay: 5200,
+                  disableOnInteraction: false,
+              },
     });
 });
