@@ -7,164 +7,199 @@
     <title>RGZ Project</title>
     <link rel="icon" href="{{ asset('images/icons/icon.svg') }}">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800|manrope:600,700,800" rel="stylesheet"/>
 
-    <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     @endif
-
 </head>
 <body>
-<header>
+<header class="site-header">
     <div class="header-mobile">
         <p class="logo-text"><span>RGZ</span> <span> project</span></p>
-
-        <p>
-            <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
-                <i class="bi bi-telephone-forward-fill"></i>
-                +7 (917) 921-55-55
-            </a>
-        </p>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
-
-    <div class="container">
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <p class="address">
             <i class="bi bi-geo-alt-fill"></i>
-            г. Казань, ул. Нариманова, 40 офис 317</p>
+            г. Казань, ул. Нариманова, 40 офис 317
+        </p>
         <p>
             <a href="mailto:info@rgz-project.ru" class="mail">
                 <i class="bi bi-envelope-at-fill"></i>
                 info@rgz-project.ru
             </a>
         </p>
-        <p class="logo-text"><span>RGZ</span> <span> project</span></p>
         <p>
             <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
                 <i class="bi bi-telephone-forward-fill"></i>
                 +7 (917) 921-55-55
             </a>
         </p>
-        <div class="whatsapp-block-wrapper">
+        <div class="messengers">
+            <a href="https://telegram.me/LENAR" aria-label="Telegram">
+                <i class="bi bi-telegram"></i>
+            </a>
+
+            <a href="https://instagram.com/lenar" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://api.whatsapp.com/send?phone=7872696383" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+        </div>
+        <button class="whatsapp-btn button-primary">Заказать звонок</button>
+    </div>
+    <div class="menu-backdrop" aria-hidden="true"></div>
+
+    <div class="container">
+        <p class="address" data-reveal="text" data-reveal-delay="80">
+            <i class="bi bi-geo-alt-fill"></i>
+            г. Казань, ул. Нариманова, 40 офис 317
+        </p>
+        <p data-reveal="text" data-reveal-delay="120">
+            <a href="mailto:info@rgz-project.ru" class="mail">
+                <i class="bi bi-envelope-at-fill"></i>
+                info@rgz-project.ru
+            </a>
+        </p>
+        <p class="logo-text" data-reveal="text">
+            <span>RGZ</span> <span> project</span>
+        </p>
+        <p data-reveal="text" data-reveal-delay="160">
+            <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
+                <i class="bi bi-telephone-forward-fill"></i>
+                +7 (917) 921-55-55
+            </a>
+        </p>
+        <div class="whatsapp-block-wrapper" data-reveal="card" data-reveal-delay="200">
             <a>
-                <button class="whatsapp-btn">Заказать звонок
+                <button class="whatsapp-btn button-primary">Заказать звонок
                     <div class="dot"></div>
                 </button>
             </a>
         </div>
-        <div class="messengers">
-            <a href="https://telegram.me/LENAR">
+        <div class="messengers" data-reveal="text" data-reveal-delay="240">
+            <a href="https://telegram.me/LENAR" aria-label="Telegram">
                 <i class="bi bi-telegram"></i>
             </a>
 
-            <a href="https://instagram.com/lenar">
+            <a href="https://instagram.com/lenar" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
             </a>
 
-            <a href="https://api.whatsapp.com/send?phone=7872696383">
+            <a href="https://api.whatsapp.com/send?phone=7872696383" aria-label="WhatsApp">
                 <i class="bi bi-whatsapp"></i>
             </a>
-            {{--            <a class="max-app" href="https://api.whatsapp.com/send?phone=79375959624">--}}
-            {{--                <svg width="20" height="20" viewBox="0 0 25 24" fill="red" xmlns="http://www.w3.org/2000/svg">--}}
-            {{--                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3405 23.9342C9.97568 23.9342 8.87728 23.5899--}}
-            {{--                     6.97252 22.2125C5.76041 23.762 1.94518 24.9672 1.77774 22.9012C1.77774 21.3535 1.42788 20.0492--}}
-            {{--                      1.04269 18.6132C0.570922 16.8544 0.0461426 14.898 0.0461426 12.0546C0.0461426 5.27426 5.6424--}}
-            {{--                      0.175079 12.2777 0.175079C18.913 0.175079 24.1153 5.52322 24.1153 12.1205C24.1153 18.7178--}}
-            {{--                      18.7474 23.9342 12.3405 23.9342ZM12.4368 6.03673C9.20791 5.86848 6.68817 8.0948 6.13253--}}
-            {{--                       11.5794C5.6724 14.465 6.48821 17.9812 7.18602 18.1582C7.51488 18.2416 8.35763 17.564 8.87711--}}
-            {{--                       17.0475C9.73154 17.5981 10.712 18.0245 11.8019 18.0813C15.1168 18.254 18.0544 15.6761 18.228--}}
-            {{--                       12.382C18.4016 9.08792 15.7517 6.20946 12.4368 6.03673Z" fill="red">--}}
-            {{--                    </path>--}}
-            {{--                </svg>--}}
-            {{--            </a>--}}
-
         </div>
     </div>
 </header>
 
-<section class="hero">
-    <div class="swiper hero-swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon3.png') }}')"></div>
-            <div class="swiper-slide" style="background-image:url('{{ asset('images/hero/fon4.png') }}')"></div>
-        </div>
-    </div>
-
-    <div class="hero-content">
-        <h1 class="desktop-title">
-            Огнезащитная и <br> антикоррозийная <br> обработка зданий и сооружений
-        </h1>
-        <h1 class="mobile-title">ОГНЕЗАЩИТА и <br> АНТИКОРРОЗИЯ</h1>
-
-        <div class="hero-icons">
-            <p class="fire-icon"><i class="bi bi-fire"></i> Устойчивость к возгоранию</p>
-            <p class="shield-icon"><i class="bi bi-shield-shaded"></i> Защита от коррозии</p>
-            <p>
-                <i class="bi bi-file-earmark-text"></i>
-                <a href="{{ asset('documents/license.pdf') }}" target="_blank" rel="noopener noreferrer">
-                    Лицензия МЧС
-                </a>
-            </p>
-        </div>
-
-        <button class="whatsapp-btn">Узнать больше</button>
-    </div>
-    <div class="blue-block">
-        <img src="{{asset('images/mobile/blue-block.svg')}}" alt="">
-        <div class="buttons">
-            <div class="services-containter-title services">
-                <hr>
-                <p>НАШИ УСЛУГИ</p>
-                <hr class="second">
+<main>
+    <section class="hero">
+        <div class="swiper hero-swiper" aria-hidden="true">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide hero-slide-1" style="background-image:url('{{ asset('images/hero/fon3.png') }}')"></div>
+                <div class="swiper-slide hero-slide-2" style="background-image:url('{{ asset('images/hero/fon4.png') }}')"></div>
             </div>
-            <label class="checkbox">
-                <input type="checkbox" checked disabled>
-                <span class="checkbox__custom"></span>
-                <span class="checkbox__text">Нанесение огнезащитных составов</span>
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" checked disabled>
-                <span class="checkbox__custom"></span>
-                <span class="checkbox__text">Защита несущих конструкций</span>
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" checked disabled>
-                <span class="checkbox__custom"></span>
-                <span class="checkbox__text">Сертифицированные материалы</span>
-            </label>
         </div>
-        <button class="whatsapp-btn">Узнать больше</button>
-    </div>
-    <div class="services-containter-title">
-        <hr>
-        <p>О НАС</p>
-        <hr class="second">
-    </div>
-    <div class="services-container">
-        <div class="service">
-            <img src="{{asset('images/mobile/mobile-fire.png')}}" alt="">
-            <p>Огнезащита <br> Конструкций</p>
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="container hero-shell">
+            <div class="hero-content" data-reveal="text">
+                <h1 class="desktop-title">
+                    Огнезащитная и <br> антикоррозийная <br> обработка зданий и сооружений
+                </h1>
+                <h1 class="mobile-title">ОГНЕЗАЩИТА и <br> АНТИКОРРОЗИЯ</h1>
+
+                <div class="hero-icons" data-reveal="card" data-reveal-delay="100">
+                    <p class="fire-icon"><i class="bi bi-fire"></i> Устойчивость к возгоранию</p>
+                    <p class="shield-icon"><i class="bi bi-shield-shaded"></i> Защита от коррозии</p>
+                    <p>
+                        <i class="bi bi-file-earmark-text"></i>
+                        <a href="{{ asset('documents/license.pdf') }}" target="_blank" rel="noopener noreferrer">
+                            Лицензия МЧС
+                        </a>
+                    </p>
+                </div>
+
+                <button class="whatsapp-btn button-primary" data-reveal="card" data-reveal-delay="180">Узнать больше</button>
+            </div>
         </div>
-        <div class="service">
-            <img src="{{asset('images/mobile/mobile-cor.png')}}" alt="">
-            <p>Антикоррозия <br> Конструкций</p>
+    </section>
+
+    <section class="editorial-section">
+        <div class="container editorial-grid">
+            <aside class="services-intro sticky-panel" data-reveal="card">
+                <div class="services-containter-title services">
+                    <hr>
+                    <p>НАШИ УСЛУГИ</p>
+                    <hr class="second">
+                </div>
+                <button class="whatsapp-btn button-secondary">Узнать больше</button>
+            </aside>
+
+            <div class="editorial-content">
+                <div class="services-list" data-reveal="card">
+                    <label class="checkbox" data-reveal="card" data-reveal-delay="80">
+                        <input type="checkbox" checked disabled>
+                        <span class="checkbox__custom"></span>
+                        <span class="checkbox__text">Нанесение огнезащитных составов</span>
+                    </label>
+                    <label class="checkbox" data-reveal="card" data-reveal-delay="160">
+                        <input type="checkbox" checked disabled>
+                        <span class="checkbox__custom"></span>
+                        <span class="checkbox__text">Защита несущих конструкций</span>
+                    </label>
+                    <label class="checkbox" data-reveal="card" data-reveal-delay="240">
+                        <input type="checkbox" checked disabled>
+                        <span class="checkbox__custom"></span>
+                        <span class="checkbox__text">Сертифицированные материалы</span>
+                    </label>
+                </div>
+
+                <div class="services-containter-title" data-reveal="text">
+                    <hr>
+                    <p>О НАС</p>
+                    <hr class="second">
+                </div>
+
+                <div class="services-container" data-reveal="card">
+                    <div class="service" data-reveal="card" data-reveal-delay="80">
+                        <img src="{{asset('images/mobile/mobile-fire.png')}}" alt="">
+                        <p>Огнезащита <br> Конструкций</p>
+                    </div>
+                    <div class="service" data-reveal="card" data-reveal-delay="160">
+                        <img src="{{asset('images/mobile/mobile-cor.png')}}" alt="">
+                        <p>Антикоррозия <br> Конструкций</p>
+                    </div>
+                    <div class="service" data-reveal="card" data-reveal-delay="240">
+                        <img src="{{asset('images/mobile/mobile-fire-treatment.png')}}" alt="">
+                        <p>Лицензия <br> МЧС</p>
+                    </div>
+                </div>
+
+                <div class="services-buttons" data-reveal="card" data-reveal-delay="300">
+                    <button class="whatsapp-btn button-primary">
+                        ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
+                        <div class="arrow"></div>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="service">
-            <img src="{{asset('images/mobile/mobile-fire-treatment.png')}}" alt="">
-            <p>Лицензия <br> МЧС</p>
-        </div>
-    </div>
-    <div class="services-buttons">
-        <button class="whatsapp-btn">
-            ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
-            <div class="arrow"></div>
-        </button>
-    </div>
-</section>
+    </section>
+</main>
+
 <div class="overlay" id="overlay"></div>
-<div class="form-container">
-    <p class="form-title">Заказать звонок</p>
+<div class="form-container" role="dialog" aria-modal="true" aria-labelledby="callback-title">
+    <button type="button" class="form-close" aria-label="Закрыть">×</button>
+    <p class="form-title" id="callback-title">Заказать звонок</p>
     <p class="subtitle">Закажите звонок для консультации, мы свяжемся с вами</p>
 
     <form action="{{ route('callback.store') }}" data-route="{{ route('callback.store') }}" class="callback-form">
@@ -175,34 +210,35 @@
         <label for="phone">Номер телефона:</label>
         <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
 
-        <button type="submit">Отправить заявку</button>
+        <button type="submit" class="button-primary">Отправить заявку</button>
     </form>
 </div>
+
 <footer>
-    <div>
-        <div class="messengers">
+    <div class="container" data-reveal="card">
+        <div class="messengers" data-reveal="text" data-reveal-delay="80">
             <p>
-                <a href="https://telegram.me/LENAR">
+                <a href="https://telegram.me/LENAR" aria-label="Telegram">
                     <i class="bi bi-telegram"></i>
                 </a>
             </p>
             <p>
-                <a href="https://api.whatsapp.com/send?phone=7872696383">
+                <a href="https://api.whatsapp.com/send?phone=7872696383" aria-label="WhatsApp">
                     <i class="bi bi-whatsapp"></i>
                 </a>
             </p>
         </div>
-        <p>
+        <p data-reveal="text" data-reveal-delay="140">
             <a href="mailto:info@rgz-project.ru" class="mail">
                 <i class="bi bi-envelope-at-fill"></i>
                 info@rgz-project.ru
             </a>
         </p>
-        <p class="address">
+        <p class="address" data-reveal="text" data-reveal-delay="200">
             <i class="bi bi-geo-alt-fill"></i>
             г. Казань, ул. Нариманова, 40 офис 317
         </p>
-        <p>
+        <p data-reveal="text" data-reveal-delay="260">
             <i class="bi bi-file-earmark-text"></i>
             <a href="{{ asset('documents/license.pdf') }}" target="_blank" rel="noopener noreferrer">
                 Лицензия МЧС
@@ -210,8 +246,7 @@
         </p>
     </div>
 </footer>
-</body>
-<!-- Success Modal -->
+
 <div class="modal fade" id="successModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -232,5 +267,5 @@
         </div>
     </div>
 </div>
-
+</body>
 </html>
