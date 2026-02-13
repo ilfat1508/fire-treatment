@@ -54,10 +54,10 @@
             <a href="https://telegram.me/LENAR" aria-label="Telegram">
                 <i class="bi bi-telegram"></i>
             </a>
-
-            <a class="messenger-max" href="https://web.max.12345" aria-label="Max Messenger">
-                <img class="messenger-icon" src="{{ asset('images/icons/max-messenger-sign-logo.svg') }}" alt="" loading="lazy" decoding="async">
+            <a href="https://api.whatsapp.com/send?phone=89872696383" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
             </a>
+
         </div>
         <button class="whatsapp-btn button-primary">Заказать звонок</button>
     </div>
@@ -102,10 +102,10 @@
             <a href="https://telegram.me/LENAR" aria-label="Telegram">
                 <i class="bi bi-telegram"></i>
             </a>
-
-            <a class="messenger-max" href="https://web.max.12345" aria-label="Max Messenger">
-                <img class="messenger-icon" src="{{ asset('images/icons/max-messenger-sign-logo.svg') }}" alt="" loading="lazy" decoding="async">
+            <a href="https://api.whatsapp.com/send?phone=89872696383" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
             </a>
+
         </div>
     </div>
 </header>
@@ -214,8 +214,8 @@
                 </a>
             </p>
             <p>
-                <a class="messenger-max" href="https://web.max.12345" aria-label="Max Messenger">
-                    <img class="messenger-icon" src="{{ asset('images/icons/max-messenger-sign-logo.svg') }}" alt="" loading="lazy" decoding="async">
+                <a href="https://api.whatsapp.com/send?phone=89872696383" aria-label="WhatsApp">
+                    <i class="bi bi-whatsapp"></i>
                 </a>
             </p>
         </div>

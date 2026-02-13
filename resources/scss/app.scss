@@ -162,25 +162,6 @@ i,
     line-height: 1;
 }
 
-.messenger-icon {
-    width: 1rem;
-    height: 1rem;
-    display: block;
-    filter: brightness(0) invert(1);
-}
-
-.messengers a.messenger-max {
-    background: linear-gradient(135deg, #2b313a 0%, #3a424d 100%);
-    border-color: #3a424d;
-    box-shadow: 0 6px 14px rgba(14, 18, 24, 0.18);
-}
-
-.messengers a.messenger-max:hover,
-.messengers a.messenger-max:focus-visible,
-.messengers a.messenger-max:active {
-    background: linear-gradient(135deg, #323945 0%, #424c59 100%);
-    border-color: #424c59;
-}
 
 svg {
     color: currentColor;
