@@ -299,6 +299,15 @@
             gap: clamp(16px, 4.6vw, 24px);
         }
 
+        .services-intro {
+            align-items: center;
+            text-align: center;
+        }
+
+        .partner-card {
+            margin-inline: auto;
+        }
+
         .service {
             min-height: auto;
             grid-template-columns: 72px 1fr;
