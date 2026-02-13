@@ -30,16 +30,24 @@
             <i class="bi bi-geo-alt-fill"></i>
             г. Казань, ул. Нариманова, 40 офис 317
         </p>
+        <div>
+            <p>
+                <a href="mailto:info@rgz-project.ru" class="mail">
+                    <i class="bi bi-envelope-at-fill"></i>
+                    info@rgz-project.ru
+                </a>
+            </p>
+            <p>
+                <a href="mailto:pto@rgz-project.ru" class="mail">
+                    <i class="bi bi-envelope-at-fill"></i>
+                    pto@rgz-project.ru
+                </a>
+            </p>
+        </div>
         <p>
-            <a href="mailto:info@rgz-project.ru" class="mail">
-                <i class="bi bi-envelope-at-fill"></i>
-                info@rgz-project.ru
-            </a>
-        </p>
-        <p>
-            <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
+            <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
                 <i class="bi bi-telephone-forward-fill"></i>
-                +7 (917) 921-55-55
+                +7 (917) 921-95-55
             </a>
         </p>
         <div class="messengers">
@@ -47,12 +55,8 @@
                 <i class="bi bi-telegram"></i>
             </a>
 
-            <a href="https://instagram.com/lenar" aria-label="Instagram">
-                <i class="bi bi-instagram"></i>
-            </a>
-
-            <a href="https://api.whatsapp.com/send?phone=7872696383" aria-label="WhatsApp">
-                <i class="bi bi-whatsapp"></i>
+            <a class="messenger-max" href="https://web.max.12345" aria-label="Max Messenger">
+                <img class="messenger-icon" src="{{ asset('images/icons/max-messenger-sign-logo.svg') }}" alt="" loading="lazy" decoding="async">
             </a>
         </div>
         <button class="whatsapp-btn button-primary">Заказать звонок</button>
@@ -64,19 +68,27 @@
             <i class="bi bi-geo-alt-fill"></i>
             г. Казань, ул. Нариманова, 40 офис 317
         </p>
-        <p data-reveal="text" data-reveal-delay="120">
-            <a href="mailto:info@rgz-project.ru" class="mail">
-                <i class="bi bi-envelope-at-fill"></i>
-                info@rgz-project.ru
-            </a>
-        </p>
+        <div>
+            <p data-reveal="text" data-reveal-delay="120">
+                <a href="mailto:info@rgz-project.ru" class="mail">
+                    <i class="bi bi-envelope-at-fill"></i>
+                    info@rgz-project.ru
+                </a>
+            </p>
+            <p data-reveal="text" data-reveal-delay="120">
+                <a href="mailto:pto@rgz-project.ru" class="mail">
+                    <i class="bi bi-envelope-at-fill"></i>
+                    pto@rgz-project.ru
+                </a>
+            </p>
+        </div>
         <p class="logo-text" data-reveal="text">
             <span>RGZ</span> <span> project</span>
         </p>
         <p data-reveal="text" data-reveal-delay="160">
-            <a href="tel:+7 (917) 921-55-55" class="head__contact__title">
+            <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
                 <i class="bi bi-telephone-forward-fill"></i>
-                +7 (917) 921-55-55
+                +7 (917) 921-95-55
             </a>
         </p>
         <div class="whatsapp-block-wrapper" data-reveal="card" data-reveal-delay="200">
@@ -91,12 +103,8 @@
                 <i class="bi bi-telegram"></i>
             </a>
 
-            <a href="https://instagram.com/lenar" aria-label="Instagram">
-                <i class="bi bi-instagram"></i>
-            </a>
-
-            <a href="https://api.whatsapp.com/send?phone=7872696383" aria-label="WhatsApp">
-                <i class="bi bi-whatsapp"></i>
+            <a class="messenger-max" href="https://web.max.12345" aria-label="Max Messenger">
+                <img class="messenger-icon" src="{{ asset('images/icons/max-messenger-sign-logo.svg') }}" alt="" loading="lazy" decoding="async">
             </a>
         </div>
     </div>
@@ -140,10 +148,15 @@
             <aside class="services-intro sticky-panel" data-reveal="card">
                 <div class="services-containter-title services">
                     <hr>
-                    <p>НАШИ УСЛУГИ</p>
+                    <p>НАШИ ПАРТНЕРЫ</p>
                     <hr class="second">
                 </div>
-                <button class="whatsapp-btn button-secondary">Узнать больше</button>
+                <a class="partner-card" href="https://npograd.ru" target="_blank" rel="noopener noreferrer" data-reveal="card">
+                    <span class="partner-card__logo">
+                        <img src="{{ asset('images/partners/npo-grad.png') }}" alt="НПО ГРАДЪ" loading="lazy" decoding="async">
+                    </span>
+                    <span class="partner-card__name">НПО ГРАДЪ</span>
+                </a>
             </aside>
 
             <div class="editorial-content">
@@ -163,34 +176,11 @@
                         <span class="checkbox__custom"></span>
                         <span class="checkbox__text">Сертифицированные материалы</span>
                     </label>
-                </div>
-
-                <div class="services-containter-title" data-reveal="text">
-                    <hr>
-                    <p>О НАС</p>
-                    <hr class="second">
-                </div>
-
-                <div class="services-container" data-reveal="card">
-                    <div class="service" data-reveal="card" data-reveal-delay="80">
-                        <img src="{{asset('images/mobile/mobile-fire.png')}}" alt="">
-                        <p>Огнезащита <br> Конструкций</p>
-                    </div>
-                    <div class="service" data-reveal="card" data-reveal-delay="160">
-                        <img src="{{asset('images/mobile/mobile-cor.png')}}" alt="">
-                        <p>Антикоррозия <br> Конструкций</p>
-                    </div>
-                    <div class="service" data-reveal="card" data-reveal-delay="240">
-                        <img src="{{asset('images/mobile/mobile-fire-treatment.png')}}" alt="">
-                        <p>Лицензия <br> МЧС</p>
-                    </div>
-                </div>
-
-                <div class="services-buttons" data-reveal="card" data-reveal-delay="300">
-                    <button class="whatsapp-btn button-primary">
-                        ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ
-                        <div class="arrow"></div>
-                    </button>
+                    <label class="checkbox" data-reveal="card" data-reveal-delay="240">
+                        <input type="checkbox" checked disabled>
+                        <span class="checkbox__custom"></span>
+                        <span class="checkbox__text">положительное заключение мчс. Получим заключение ФГБУ СЭУ ФПС ИПЛ</span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -224,8 +214,8 @@
                 </a>
             </p>
             <p>
-                <a href="https://api.whatsapp.com/send?phone=7872696383" aria-label="WhatsApp">
-                    <i class="bi bi-whatsapp"></i>
+                <a class="messenger-max" href="https://web.max.12345" aria-label="Max Messenger">
+                    <img class="messenger-icon" src="{{ asset('images/icons/max-messenger-sign-logo.svg') }}" alt="" loading="lazy" decoding="async">
                 </a>
             </p>
         </div>
@@ -233,6 +223,12 @@
             <a href="mailto:info@rgz-project.ru" class="mail">
                 <i class="bi bi-envelope-at-fill"></i>
                 info@rgz-project.ru
+            </a>
+        </p>
+        <p data-reveal="text" data-reveal-delay="140">
+            <a href="mailto:pto@rgz-project.ru" class="mail">
+                <i class="bi bi-envelope-at-fill"></i>
+                pto@rgz-project.ru
             </a>
         </p>
         <p class="address" data-reveal="text" data-reveal-delay="200">
