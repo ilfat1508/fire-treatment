@@ -54,7 +54,7 @@
             <a href="https://telegram.me/LENAR" aria-label="Telegram">
                 <i class="bi bi-telegram"></i>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=89872696383" aria-label="WhatsApp">
+            <a href="https://api.whatsapp.com/send?phone=79872696383" aria-label="WhatsApp">
                 <i class="bi bi-whatsapp"></i>
             </a>
 
@@ -102,7 +102,7 @@
             <a href="https://telegram.me/LENAR" aria-label="Telegram">
                 <i class="bi bi-telegram"></i>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=89872696383" aria-label="WhatsApp">
+            <a href="https://api.whatsapp.com/send?phone=79872696383" aria-label="WhatsApp">
                 <i class="bi bi-whatsapp"></i>
             </a>
 
@@ -214,7 +214,7 @@
                 </a>
             </p>
             <p>
-                <a href="https://api.whatsapp.com/send?phone=89872696383" aria-label="WhatsApp">
+                <a href="https://api.whatsapp.com/send?phone=79872696383" aria-label="WhatsApp">
                     <i class="bi bi-whatsapp"></i>
                 </a>
             </p>
