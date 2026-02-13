@@ -1,103 +1,125 @@
-header {
-    .header-mobile, .mobile-menu {
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    --icon-color: currentColor;
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    min-height: var(--header-height);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease, backdrop-filter 220ms ease;
+
+    .header-mobile,
+    .mobile-menu {
         display: none;
     }
 
-    width: 100%;
-    height: 50px;
-    display: flex;
-    background: black;
-    color: white;
-    align-items: center;
-
     .container {
-        display: flex;
+        min-height: var(--header-height);
+        display: grid;
+        grid-template-columns: minmax(180px, 1.2fr) 1fr auto 1fr auto auto;
         align-items: center;
-        width: 100%;
-        justify-content: space-between;
-        margin: auto;
-        max-width: 1230px;
+        gap: clamp(10px, 1.3vw, 18px);
+    }
 
-        .logo-text {
-            span:first-child {
-                font-size: 24px;
-                font-weight: 600;
-                color: #0070ff;
-            }
+    .logo-text {
+        font-family: var(--font-display);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        white-space: nowrap;
 
-            span:last-child {
-                font-size: 18px;
-                font-weight: 600;
-                color: red;
-            }
+        span:first-child {
+            font-size: clamp(1.18rem, 1.5vw, 1.9rem);
+            color: var(--text);
+        }
+
+        span:last-child {
+            font-size: clamp(1rem, 1.3vw, 1.5rem);
+            color: var(--accent);
+            margin-left: 4px;
         }
     }
 
-    a {
-        color: white;
-        text-decoration: none;
+    .address,
+    .mail,
+    .head__contact__title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--fg);
+        line-height: 1.45;
     }
 
-    p {
-        margin: 0;
+    .mail,
+    .head__contact__title {
+        white-space: nowrap;
     }
 
     i::before {
-        color: red;
-        margin-right: 5px
+        margin-right: 7px;
     }
 
     .messengers {
-        display: flex;
-        justify-content: space-between;
+        display: inline-flex;
         align-items: center;
-        line-height: 0;
+        gap: 6px;
 
         a {
-            display: flex;
+            width: 38px;
+            height: 38px;
+            border: 1px solid color-mix(in srgb, var(--line) 84%, #ffffff 16%);
+            border-radius: 999px;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            background: color-mix(in srgb, var(--surface) 86%, #ffffff 14%);
+            transition:
+                transform 0.28s var(--ease-editorial),
+                border-color 0.28s ease,
+                background-color 0.28s ease;
+        }
+
+        a:hover {
+            transform: translateY(-1px);
+            border-color: color-mix(in srgb, var(--accent) 42%, var(--line) 58%);
+            background: color-mix(in srgb, var(--surface-2) 88%, white 12%);
+        }
+
+        a:focus-visible,
+        a:active {
+            border-color: color-mix(in srgb, var(--accent) 56%, var(--line) 44%);
+            background: color-mix(in srgb, var(--surface-2) 84%, white 16%);
         }
 
         i::before {
-            font-size: 20px;
-            margin-right: 10px;
+            margin: 0;
+            font-size: 1rem;
         }
+    }
 
-        .max-app {
-            width: 25px;
+    .whatsapp-block-wrapper {
+        justify-self: end;
+    }
 
-            svg {
-                width: 100%;
-                margin-left: -3px;
-            }
-        }
+    &.is-scrolled {
+        background: rgba(255, 255, 255, 0.72);
+        border-bottom-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(12px) saturate(140%);
+        -webkit-backdrop-filter: blur(12px) saturate(140%);
     }
 }
 
-.logo {
-    background-image: url("/public/images/icons/logo.svg");
-}
+@supports not (backdrop-filter: blur(1px)) {
+    .site-header {
+        background: rgba(255, 255, 255, 0.94);
+    }
 
-@media screen and (max-width: 1024px) {
-    header {
-        font-size: 13px;
-
-        .container {
-            .logo-text {
-                span:first-child {
-                    font-size: 20px;
-                }
-
-                span:last-child {
-                    font-size: 16px;
-                }
-            }
-
-            .messengers {
-                i::before {
-                    font-size: 16px;
-                }
-            }
-        }
+    .site-header.is-scrolled {
+        background: rgba(255, 255, 255, 0.96);
     }
 }

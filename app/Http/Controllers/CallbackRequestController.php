@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CallbackRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class CallbackRequestController extends Controller
 {
@@ -33,7 +35,15 @@ class CallbackRequestController extends Controller
             'phone' => 'required|string'
         ]);
 
-        CallbackRequest::create($validated);
+        try {
+            CallbackRequest::create($validated);
+        } catch (Throwable $exception) {
+            Log::warning('Callback request could not be persisted.', [
+                'error' => $exception->getMessage(),
+                'fio' => $validated['fio'] ?? null,
+                'phone' => $validated['phone'] ?? null,
+            ]);
+        }
 
         return response()->json([
             'success' => true,
