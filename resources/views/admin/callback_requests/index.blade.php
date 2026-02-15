@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заявки обратного звонка</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
     <style>
         body { font-family: Arial, sans-serif; background: #f8fafc; margin: 0; color: #0f172a; }
         .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 40px; }
@@ -95,3 +96,4 @@
 </div>
 </body>
 </html>
+
