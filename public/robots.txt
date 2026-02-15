@@ -1,2 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Disallow:
+
+Sitemap: https://rgz-project.ru/sitemap.xml

@@ -1,10 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>RGZ Project</title>
+    <title>Огнезащитная и антикоррозийная обработка</title>
+    <meta name="description" content="Огнезащитная и антикоррозийная обработка зданий и сооружений: металлоконструкции, бетон, дерево. Работы для бизнеса, ТСЖ и подрядчиков.">
+    <meta name="keywords" content="огнезащитная обработка, антикоррозийная обработка, огнезащита зданий, огнезащита металлоконструкций, антикоррозийная защита, огнезащитные работы, антикоррозийные работ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgz-project.ru/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rgz-project.ru/">
+    <meta property="og:title" content="Огнезащитная и антикоррозийная обработка">
+    <meta property="og:description" content="Огнезащитная и антикоррозийная обработка зданий и сооружений: металлоконструкции, бетон, дерево.">
+    <meta property="og:site_name" content="RGZ Project">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Огнезащитная и антикоррозийная обработка">
+    <meta name="twitter:description" content="Огнезащитная и антикоррозийная обработка зданий и сооружений: металлоконструкции, бетон, дерево.">
+
     <link rel="icon" href="{{ asset('images/icons/icon.svg') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -266,3 +281,4 @@
 </div>
 </body>
 </html>
+
