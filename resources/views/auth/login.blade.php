@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход в админку</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
     <style>
         body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 32px 16px; color: #1f2937; }
         .container { max-width: 420px; margin: 0 auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 24px; }
@@ -46,3 +47,4 @@
 </div>
 </body>
 </html>
+

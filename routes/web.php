@@ -32,3 +32,20 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
 });
 
 Route::post('/callback/store', [CallbackRequestController::class, 'store'])->name('callback.store');
+
+Route::get('/robots.txt', function () {
+    return response()
+        ->view('robots')
+        ->header('Content-Type', 'text/plain');
+});
+
+Route::get('/sitemap.xml', function () {
+    if (!config('app.seo_index')) {
+        abort(404);
+    }
+
+    return response()
+        ->view('sitemap')
+        ->header('Content-Type', 'application/xml');
+});
+

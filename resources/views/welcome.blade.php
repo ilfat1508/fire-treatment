@@ -1,10 +1,66 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>RGZ Project</title>
+    <title>Огнезащитная и антикоррозийная обработка</title>
+    <meta name="description" content="Огнезащитная и антикоррозийная обработка зданий и сооружений: металлоконструкции, бетон, дерево. Работы для бизнеса, ТСЖ и подрядчиков.">
+    <meta name="keywords" content="огнезащитная обработка, антикоррозийная обработка, огнезащита зданий, огнезащита металлоконструкций, антикоррозийная защита, огнезащитные работы, антикоррозийные работ">
+    @if(config('app.seo_index'))
+        <meta name="robots" content="index, follow">
+    @else
+        <meta name="robots" content="noindex, nofollow, noarchive">
+    @endif
+    <link rel="canonical" href="https://rgz-project.ru/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rgz-project.ru/">
+    <meta property="og:title" content="Огнезащитная и антикоррозийная обработка">
+    <meta property="og:description" content="Огнезащитная и антикоррозийная обработка зданий и сооружений: металлоконструкции, бетон, дерево.">
+    <meta property="og:site_name" content="RGZ Project">
+    <meta property="og:image" content="https://rgz-project.ru/images/hero/fon3.png">
+    <meta property="og:image:secure_url" content="https://rgz-project.ru/images/hero/fon3.png">
+    <meta property="og:image:alt" content="Огнезащитная и антикоррозийная обработка зданий и сооружений">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Огнезащитная и антикоррозийная обработка">
+    <meta name="twitter:description" content="Огнезащитная и антикоррозийная обработка зданий и сооружений: металлоконструкции, бетон, дерево.">
+    <meta name="twitter:image" content="https://rgz-project.ru/images/hero/fon3.png">
+
+    @verbatim
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "RGZ Project",
+            "url": "https://rgz-project.ru/"
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "RGZ Project",
+            "legalName": "Общество с ограниченной ответственностью «РГЗ ПРОЕКТ»",
+            "url": "https://rgz-project.ru/",
+            "logo": "https://rgz-project.ru/images/icons/icon.svg",
+            "email": "info@rgz-project.ru",
+            "telephone": "+7-917-921-95-55",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Казань",
+                "streetAddress": "ул. Нариманова, 40 офис 317",
+                "addressCountry": "RU"
+            },
+            "sameAs": [
+                "https://telegram.me/LENAR",
+                "https://api.whatsapp.com/send?phone=79872696383"
+            ]
+        }
+    </script>
+    @endverbatim
+
     <link rel="icon" href="{{ asset('images/icons/icon.svg') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,12 +100,20 @@
                 </a>
             </p>
         </div>
-        <p>
-            <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
-                <i class="bi bi-telephone-forward-fill"></i>
-                +7 (917) 921-95-55
-            </a>
-        </p>
+        <div>
+            <p>
+                <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
+                    <i class="bi bi-telephone-forward-fill"></i>
+                    +7 (917) 921-95-55
+                </a>
+            </p>
+            <p>
+                <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
+                    <i class="bi bi-telephone-forward-fill"></i>
+                    +7 (917) 921-94-44
+                </a>
+            </p>
+        </div>
         <div class="messengers">
             <a href="https://telegram.me/LENAR" aria-label="Telegram">
                 <i class="bi bi-telegram"></i>
@@ -85,12 +149,20 @@
         <p class="logo-text" data-reveal="text">
             <span>RGZ</span> <span> project</span>
         </p>
-        <p data-reveal="text" data-reveal-delay="160">
-            <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
-                <i class="bi bi-telephone-forward-fill"></i>
-                +7 (917) 921-95-55
-            </a>
-        </p>
+        <div>
+            <p data-reveal="text" data-reveal-delay="160">
+                <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
+                    <i class="bi bi-telephone-forward-fill"></i>
+                    +7 (917) 921-95-55
+                </a>
+            </p>
+            <p>
+                <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
+                    <i class="bi bi-telephone-forward-fill"></i>
+                    +7 (917) 921-94-44
+                </a>
+            </p>
+        </div>
         <div class="whatsapp-block-wrapper" data-reveal="card" data-reveal-delay="200">
             <a>
                 <button class="whatsapp-btn button-primary">Заказать звонок
@@ -266,3 +338,4 @@
 </div>
 </body>
 </html>
+
