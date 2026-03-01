@@ -303,6 +303,18 @@
                 pto@rgz-project.ru
             </a>
         </p>
+        <p class="address" data-reveal="text" data-reveal-delay="160">
+            <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
+                <i class="bi bi-telephone-forward-fill"></i>
+                +7 (917) 921-95-55 - отдел по работе с клиентами
+            </a>
+        </p>
+        <p class="address" data-reveal="text" data-reveal-delay="180">
+            <a href="tel:+7 (917) 921-95-55" class="head__contact__title">
+                <i class="bi bi-telephone-forward-fill"></i>
+                +7 (917) 921-94-44 - руководитель проектов
+            </a>
+        </p>
         <p class="address" data-reveal="text" data-reveal-delay="200">
             <i class="bi bi-geo-alt-fill"></i>
             г. Казань, ул. Нариманова, 40 офис 317
