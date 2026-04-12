@@ -115,4 +115,6 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'callback_request_to' => env('CALLBACK_REQUEST_TO'),
+
 ];

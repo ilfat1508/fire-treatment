@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CallbackRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Throwable;
 
 class CallbackRequestController extends Controller
@@ -35,14 +36,37 @@ class CallbackRequestController extends Controller
             'phone' => 'required|string'
         ]);
 
+        $callbackRequest = null;
+
         try {
-            CallbackRequest::create($validated);
+            $callbackRequest = CallbackRequest::create($validated);
         } catch (Throwable $exception) {
             Log::warning('Callback request could not be persisted.', [
                 'error' => $exception->getMessage(),
                 'fio' => $validated['fio'] ?? null,
                 'phone' => $validated['phone'] ?? null,
             ]);
+        }
+
+        $callbackRequestTo = config('mail.callback_request_to');
+
+        if ($callbackRequest !== null && ! empty($callbackRequestTo)) {
+            try {
+                Mail::raw(
+                    "Новая заявка на обратный звонок.\nИмя: {$validated['fio']}\nТелефон: {$validated['phone']}",
+                    function ($message) use ($callbackRequestTo) {
+                        $message->to($callbackRequestTo)
+                            ->subject('Новая заявка на обратный звонок');
+                    }
+                );
+            } catch (Throwable $exception) {
+                Log::warning('Callback request email could not be sent.', [
+                    'error' => $exception->getMessage(),
+                    'fio' => $validated['fio'] ?? null,
+                    'phone' => $validated['phone'] ?? null,
+                    'email' => $callbackRequestTo,
+                ]);
+            }
         }
 
         return response()->json([
