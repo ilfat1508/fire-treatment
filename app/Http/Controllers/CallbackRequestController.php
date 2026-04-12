@@ -48,15 +48,28 @@ class CallbackRequestController extends Controller
             ]);
         }
 
-        $callbackRequestTo = config('mail.callback_request_to');
+        $callbackRequestTo = (string) config('mail.callback_request_to', '');
+        $recipients = array_values(array_filter(array_map('trim', explode(',', $callbackRequestTo))));
 
-        if ($callbackRequest !== null && ! empty($callbackRequestTo)) {
+        if (empty($recipients)) {
+            Log::warning('Callback request email recipient is not configured.', [
+                'fio' => $validated['fio'] ?? null,
+                'phone' => $validated['phone'] ?? null,
+            ]);
+        } else {
+            $subjectPrefix = trim((string) config('mail.callback_request_subject_prefix', ''));
+            $subject = 'Новая заявка на обратный звонок';
+
+            if ($subjectPrefix !== '') {
+                $subject = $subjectPrefix . ' ' . $subject;
+            }
+
             try {
                 Mail::raw(
                     "Новая заявка на обратный звонок.\nИмя: {$validated['fio']}\nТелефон: {$validated['phone']}",
-                    function ($message) use ($callbackRequestTo) {
-                        $message->to($callbackRequestTo)
-                            ->subject('Новая заявка на обратный звонок');
+                    function ($message) use ($recipients, $subject) {
+                        $message->to($recipients)
+                            ->subject($subject);
                     }
                 );
             } catch (Throwable $exception) {
@@ -64,7 +77,7 @@ class CallbackRequestController extends Controller
                     'error' => $exception->getMessage(),
                     'fio' => $validated['fio'] ?? null,
                     'phone' => $validated['phone'] ?? null,
-                    'email' => $callbackRequestTo,
+                    'email' => $recipients,
                 ]);
             }
         }

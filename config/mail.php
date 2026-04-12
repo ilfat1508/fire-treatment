@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', env('MAIL_TRANSPORT', 'log')),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,12 +39,15 @@ return [
 
         'smtp' => [
             'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME'),
+            'scheme' => env(
+                'MAIL_SCHEME',
+                filter_var(env('SMTP_SECURE', false), FILTER_VALIDATE_BOOL) ? 'ssl' : null
+            ),
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', '127.0.0.1'),
-            'port' => env('MAIL_PORT', 2525),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => env('MAIL_HOST', env('SMTP_HOST', '127.0.0.1')),
+            'port' => env('MAIL_PORT', env('SMTP_PORT', 2525)),
+            'username' => env('MAIL_USERNAME', env('SMTP_USER')),
+            'password' => env('MAIL_PASSWORD', env('SMTP_PASS')),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
@@ -67,7 +70,7 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+            'path' => env('MAIL_SENDMAIL_PATH', env('SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i')),
         ],
 
         'log' => [
@@ -111,10 +114,12 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', env('CONTACT_FROM_EMAIL', 'hello@example.com')),
+        'name' => env('MAIL_FROM_NAME', env('CONTACT_FROM_NAME', 'Example')),
     ],
 
-    'callback_request_to' => env('CALLBACK_REQUEST_TO'),
+    'callback_request_to' => env('CALLBACK_REQUEST_TO', env('CONTACT_TO_EMAIL')),
+
+    'callback_request_subject_prefix' => env('CONTACT_SUBJECT_PREFIX', ''),
 
 ];
