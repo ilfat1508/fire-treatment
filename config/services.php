@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'callback_requests' => [
+        'notification_to' => env('CALLBACK_REQUEST_NOTIFICATION_TO'),
+    ],
+
 ];

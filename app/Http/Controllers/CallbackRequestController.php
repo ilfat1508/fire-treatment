@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CallbackRequestSubmitted;
 use App\Models\CallbackRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Throwable;
 
 class CallbackRequestController extends Controller
@@ -32,22 +34,47 @@ class CallbackRequestController extends Controller
     {
         $validated = $request->validate([
             'fio' => 'required|string|max:255',
-            'phone' => 'required|string'
+            'phone' => 'required|string',
         ]);
 
         try {
-            CallbackRequest::create($validated);
+            $callbackRequest = CallbackRequest::create($validated);
         } catch (Throwable $exception) {
             Log::warning('Callback request could not be persisted.', [
                 'error' => $exception->getMessage(),
                 'fio' => $validated['fio'] ?? null,
                 'phone' => $validated['phone'] ?? null,
             ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.',
+            ]);
+        }
+
+        $notificationEmail = config('services.callback_requests.notification_to');
+
+        if (filled($notificationEmail)) {
+            try {
+                Mail::to($notificationEmail)->send(new CallbackRequestSubmitted($callbackRequest));
+            } catch (Throwable $exception) {
+                Log::warning('Callback request email could not be sent.', [
+                    'error' => $exception->getMessage(),
+                    'callback_request_id' => $callbackRequest->id,
+                    'fio' => $callbackRequest->fio,
+                    'phone' => $callbackRequest->phone,
+                    'notification_to' => $notificationEmail,
+                ]);
+            }
+        } else {
+            Log::warning('Callback request email skipped because no notification address is configured.', [
+                'callback_request_id' => $callbackRequest->id,
+            ]);
         }
 
         return response()->json([
             'success' => true,
-            'message' => 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.'
+            'message' => 'Заявка отправлена! Мы свяжемся с вами в ближайшее время.',
         ]);
     }
 
